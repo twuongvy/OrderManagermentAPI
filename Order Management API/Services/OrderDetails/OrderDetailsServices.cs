@@ -31,15 +31,15 @@ namespace Order_Management_API.Services.OrderDetails
                 Success = false
             };
         }
-        public async Task<OrderDetailsDTO> GetOrderDetails(int orderId)
+        public async Task<Model.OrderDetails> GetOrderDetails(int orderId)
         {
             var orderDetails = await _orderDetailsRepository.GetOrderDetails(orderId);
-            return _mapper.Map<OrderDetailsDTO>(orderDetails);
+            return orderDetails;
         }
-        public async Task<List<OrderDetailsDTO>> GetOrderDetails()
+        public async Task<List<Model.OrderDetails>> GetOrderDetails()
         {
             var orderDetails = await _orderDetailsRepository.GetOrderDetails();
-            return _mapper.Map<List<OrderDetailsDTO>>(orderDetails);
+            return orderDetails;
         }
         
     }
